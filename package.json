@@ -1,0 +1,26 @@
+{
+  "name": "pizza_toppings_frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify ./scripts/main.js -o bundle.js",
+    "watch": "watchify ./scripts/main.js -o bundle.js",
+    "dev-server": "live-server .",
+    "dev": "run-all \"npm run watch\" \"npm run dev-server\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "request": "^2.88.0",
+    "short-id": "0.1.0-1"
+  },
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "live-server": "^1.2.0",
+    "run-all": "^1.0.1",
+    "watchify": "^3.11.0"
+  }
+}
