@@ -58,7 +58,7 @@ const deleteTopping = id => {
 
 const updateTopping = (id, name, deliciousness) => {
   const topping = toppings.find(e => e.id === id)
-  console.log(topping)
+
   if(topping){
     topping.name = name
     topping.deliciousness = deliciousness

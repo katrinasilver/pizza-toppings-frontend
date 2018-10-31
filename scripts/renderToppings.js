@@ -1,5 +1,5 @@
 const { getToppings, deleteTopping, updateTopping } = require('./toppings')
-const { addEventListenerOnSelector } = require('./utils')
+const { addEventListenerAll } = require('./utils')
 const { setEditing, getEditing, resetEditing } = require('./editing')
 
 const renderToppings = (toppings) => {
@@ -23,7 +23,7 @@ const renderToppings = (toppings) => {
   // add event listeners for new elements in the DOM
 
   // delete list item
-  addEventListenerOnSelector('.delete', 'click', function(event){
+  addEventListenerAll('.delete', 'click', function(event){
     const id = event.target.parentElement.getAttribute('data-id')
     deleteTopping(id)
 
@@ -32,7 +32,7 @@ const renderToppings = (toppings) => {
   })
 
   // show update form
-  addEventListenerOnSelector('.update', 'click', function(event){
+  addEventListenerAll('.update', 'click', function(event){
     const id = event.target.parentElement.getAttribute('data-id')
     setEditing(id)
 
@@ -41,7 +41,7 @@ const renderToppings = (toppings) => {
   })
 
   // hide update form
-  addEventListenerOnSelector('.cancel', 'click', function(event){
+  addEventListenerAll('.cancel', 'click', function(event){
     resetEditing()
 
     const toppings = getToppings()
@@ -49,7 +49,7 @@ const renderToppings = (toppings) => {
   })
 
   // update data
-  addEventListenerOnSelector('li > form', 'submit', function(event){
+  addEventListenerAll('li > form', 'submit', function(event){
     event.preventDefault()
     
     const id = event.target.parentElement.getAttribute('data-id')

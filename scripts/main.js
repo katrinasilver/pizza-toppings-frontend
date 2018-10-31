@@ -1,4 +1,5 @@
-const { renderToppings } = require('./templates')
+const axios = require('axios')
+const { renderToppings } = require('./renderToppings')
 const { addTopping, getToppings } = require('./toppings')
 
 
@@ -19,7 +20,6 @@ document.querySelector('form').addEventListener('submit', function(event){
   renderToppings(toppings)
 
 })
-
 
 
 // initial render of data
