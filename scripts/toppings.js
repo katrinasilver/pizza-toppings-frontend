@@ -1,4 +1,6 @@
+const axios = require('axios') // library for AJAX calls
 const shortId = require('short-id')
+const url = 'https://immense-lake-82822.herokuapp.com/toppings/'
 
 const toppings = [
   {
@@ -34,35 +36,25 @@ const toppings = [
 ]
 
 const getToppings = () => {
-  return toppings
+  // return toppings
+
+  // return toppings from the server
+  return axios.get(url)
 }
 
 const addTopping = (name, deliciousness) => {
-  const topping = {
-    id: shortId.generate(),
-    name,
-    deliciousness: parseInt(deliciousness)
-  }
-
-  toppings.push(topping)
+  // toppings.push(topping)
+  let newTopping = { name, deliciousness } //abbreviated object syntax same as { name:name, deliciousness: deliciousness }
+  return axios.post(url, newTopping)
 }
 
 const deleteTopping = id => {
-  const topping = toppings.find(e => e.id === id)
-
-  const idx = toppings.indexOf(topping)
-
-  if(idx !== -1)
-    toppings.splice(idx, 1)
+  return axios.delete(url + id) // remove a topping based on id of topping
 }
 
 const updateTopping = (id, name, deliciousness) => {
-  const topping = toppings.find(e => e.id === id)
-
-  if(topping){
-    topping.name = name
-    topping.deliciousness = deliciousness
-  }
+  const topping = { name, deliciousness }
+  return axios.put(url + id, topping)
 }
 
 module.exports = {
